@@ -15,6 +15,7 @@ import { InterviewComponent } from './pages/interview/interview.component';
 import { CandidatePageComponent } from './pages/candidate/candidate-page/candidate-page.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { MatSelectModule } from '@angular/material';
+import { TimelineComponent } from './pages/candidate/candidate-page/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatSelectModule } from '@angular/material';
     CandidateComponent,
     VacancyComponent,
     InterviewComponent,
-    HeaderComponent
+    HeaderComponent,
+    TimelineComponent
   ],
   imports: [
     AppRoutingModule,
