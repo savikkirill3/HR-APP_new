@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="addInterview()" title="Assign interview">
       <mat-icon svgIcon="interview-icon"></mat-icon>
     </button>
-    <button mat-icon-button (click)="loadCV($event)" (click)="isShowAddCvs = true" title="Load CV">
+    <button mat-icon-button (click)="loadCV()" title="Load CV">
       <mat-icon svgIcon="cv-icon"></mat-icon>
     </button>
     <button mat-icon-button (click)="addExperience()" title="Add experience">
@@ -14,13 +14,29 @@
     </button>
   </div>
   <div class="timeline">
-    <div class="notes-info" fxLayout *ngFor="let element of candidateInfo">
-      <table fxFlex="1 1 auto" class="notes-info-table">
+    <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo">
+      <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note; else experience">
         <tr>
-          <td>{{element.date | date}}</td>
-          <td>Note: {{element.Note}}</td>
+          <td>
+            {{element.date | date}}</td>
+          <td>
+            <p>Note: {{element.Note}}</p>
+          </td>
         </tr>
       </table>
-    </div>
+      <ng-template #experience>
+        <table fxFlex="1 1 auto" class="info-table">
+          <tr>
+            <td>
+              {{element.date | date}}</td>
+            <td>
+              <p>{{ element.dateFrom | date }} &mdash; {{ element.dateTo | date }}</p>
+              <p>Company: {{element.companyName}}</p>
+              <p>Position: {{element.position}}</p>
+            </td>
+          </tr>
+        </table>
+      </ng-template>
+    </mat-card>
   </div>
 </div>

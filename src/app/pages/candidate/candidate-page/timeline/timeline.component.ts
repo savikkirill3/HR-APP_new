@@ -4,6 +4,7 @@ import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NewNotesDialogComponent} from './new-notes-dialog/new-notes-dialog.component';
 import {NewExperienceDialogComponent} from './new-experience-dialog/new-experience-dialog.component';
+import {NewCvDialogComponent} from './new-cv-dialog/new-cv-dialog.component';
 
 /*export interface CandidateInfo {
   Notes: CandidateNotes;
@@ -29,7 +30,6 @@ export interface CandidateExperience {
   styleUrls: ['./timeline.component.css']
 })
 export class TimelineComponent implements OnInit {
-  isShowAddCvs = false;
   cvList = [];
   candidateInfo = [];
   notes: CandidateNotes[] = [];
@@ -53,9 +53,19 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
   }
 
-  loadCV(event: {file: File }) {
-    this.cvList.push(event.file);
-    this.isShowAddCvs = false;
+  loadCV() {
+    const dialogNew = this.dialog.open(NewCvDialogComponent, {
+      data: {...this.notes}
+    });
+    dialogNew.afterClosed().subscribe(result => {
+      if (result) {
+        result.date = new Date();
+        this.cvList.push(result);
+        this.candidateInfo.push(result);
+        console.log(result);
+        this.sortData();
+      }
+    });
   }
 
   sortData() {

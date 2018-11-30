@@ -6,6 +6,7 @@
       <mat-form-field>
         <input
           matInput
+          [(ngModel)]="data.companyName"
           placeholder="Company name"
           name="Company name"
           required
@@ -16,6 +17,7 @@
       <mat-form-field>
         <input
           matInput
+          [(ngModel)]="data.position"
           placeholder="Position"
           name="Position"
           required
@@ -26,6 +28,7 @@
         <mat-form-field>
           <input
             matInput
+            [(ngModel)]="data.dateFrom"
             name="Date from"
             [matDatepicker]="picker1"
             placeholder="Date from"
@@ -41,6 +44,7 @@
         <mat-form-field>
           <input
             matInput
+            [(ngModel)]="data.dateTo"
             name="Date to"
             [matDatepicker]="picker2"
             placeholder="Date to"

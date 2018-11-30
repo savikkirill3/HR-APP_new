@@ -50,7 +50,9 @@ import { NewCvDialogComponent } from './pages/candidate/candidate-page/timeline/
   bootstrap: [AppComponent],
   entryComponents: [
     NewExperienceDialogComponent,
-    NewNotesDialogComponent]
+    NewNotesDialogComponent,
+    NewCvDialogComponent,
+  ]
 })
 
 export class AppModule {
