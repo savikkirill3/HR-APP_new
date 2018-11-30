@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material';
 import { TimelineComponent } from './pages/candidate/candidate-page/timeline/timeline.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeline/new-notes-dialog/new-notes-dialog.component';
+import { NewExperienceDialogComponent } from './pages/candidate/candidate-page/timeline/new-experience-dialog/new-experience-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeli
     InterviewComponent,
     HeaderComponent,
     TimelineComponent,
-    NewNotesDialogComponent
+    NewNotesDialogComponent,
+    NewExperienceDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,7 +46,7 @@ import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeli
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [NewNotesDialogComponent]
 })
 
 export class AppModule {

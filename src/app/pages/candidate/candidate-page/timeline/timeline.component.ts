@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import {NewNotesDialogComponent} from './new-notes-dialog/new-notes-dialog.component';
 
 @Component({
   selector: 'app-timeline',
@@ -34,12 +35,10 @@ export class TimelineComponent implements OnInit {
 
   addNotes() {
     const dialogNew = this.dialog.open(NewNotesDialogComponent, {
-      data: {...this.notes}
     });
 
     dialogNew.afterClosed().subscribe(result => {
       if (result) {
-        this.notes.push(result);
       }
     });
   }
