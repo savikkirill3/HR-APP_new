@@ -16,6 +16,8 @@ import { CandidatePageComponent } from './pages/candidate/candidate-page/candida
 import { HeaderComponent } from './layout/header/header.component';
 import { MatSelectModule } from '@angular/material';
 import { TimelineComponent } from './pages/candidate/candidate-page/timeline/timeline.component';
+import {HttpClientModule} from '@angular/common/http';
+import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeline/new-notes-dialog/new-notes-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { TimelineComponent } from './pages/candidate/candidate-page/timeline/tim
     VacancyComponent,
     InterviewComponent,
     HeaderComponent,
-    TimelineComponent
+    TimelineComponent,
+    NewNotesDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -36,6 +39,7 @@ import { TimelineComponent } from './pages/candidate/candidate-page/timeline/tim
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    HttpClientModule,
     CustomFormsModule
   ],
   providers: [],
