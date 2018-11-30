@@ -15,7 +15,14 @@ import { InterviewComponent } from './pages/interview/interview.component';
 import { CandidatePageComponent } from './pages/candidate/candidate-page/candidate-page.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { MatSelectModule } from '@angular/material';
+
 import { ShortInfoComponent } from './pages/candidate/candidate-page/short-info/short-info.component';
+
+import { TimelineComponent } from './pages/candidate/candidate-page/timeline/timeline.component';
+import {HttpClientModule} from '@angular/common/http';
+import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeline/new-notes-dialog/new-notes-dialog.component';
+import { NewExperienceDialogComponent } from './pages/candidate/candidate-page/timeline/new-experience-dialog/new-experience-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +32,14 @@ import { ShortInfoComponent } from './pages/candidate/candidate-page/short-info/
     VacancyComponent,
     InterviewComponent,
     HeaderComponent,
+
     ShortInfoComponent
+
+    TimelineComponent,
+    NewNotesDialogComponent,
+    NewExperienceDialogComponent,
+    NewCvDialogComponent
+
   ],
   imports: [
     AppRoutingModule,
@@ -36,11 +50,16 @@ import { ShortInfoComponent } from './pages/candidate/candidate-page/short-info/
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    HttpClientModule,
     CustomFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [
+    NewExperienceDialogComponent,
+    NewNotesDialogComponent,
+    NewCvDialogComponent,
+  ]
 })
 
 export class AppModule {
