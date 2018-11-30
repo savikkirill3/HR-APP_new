@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="addInterview()" title="Assign interview">
       <mat-icon svgIcon="interview-icon"></mat-icon>
     </button>
-    <button mat-icon-button (click)="loadCV()" title="Load CV">
+    <button mat-icon-button (click)="loadCV($event)" (click)="isShowAddCvs = true" title="Load CV">
       <mat-icon svgIcon="cv-icon"></mat-icon>
     </button>
     <button mat-icon-button (click)="addExperience()" title="Add experience">
@@ -14,6 +14,13 @@
     </button>
   </div>
   <div class="timeline">
-
+    <div class="notes-info" fxLayout *ngFor="let element of candidateInfo">
+      <table fxFlex="1 1 auto" class="notes-info-table">
+        <tr>
+          <td>{{element.date | date}}</td>
+          <td>Note: {{element.Note}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

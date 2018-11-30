@@ -1,3 +1,85 @@
-<p>
-  new-experience-dialog works!
-</p>
+<div class="dialog">
+  <h2 mat-dialog-title>New Experience</h2>
+
+  <div mat-dialog-content>
+    <form fxLayout="column" #form="ngForm">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Company name"
+          name="Company name"
+          required
+        />
+        <mat-error align="end">This field is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Position"
+          name="Position"
+          required
+        />
+        <mat-error align="end">This field is required.</mat-error>
+      </mat-form-field>
+      <form>
+        <mat-form-field>
+          <input
+            matInput
+            name="Date from"
+            [matDatepicker]="picker1"
+            placeholder="Date from"
+            required
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            name="Date to"
+            [matDatepicker]="picker2"
+            placeholder="Date to"
+            required
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </form>
+    </form>
+  </div>
+
+  <div
+    mat-dialog-actions
+    fxLayout="row nowrap"
+    fxLayoutGap="10px"
+    class="actions"
+  >
+    <button
+      mat-raised-button
+      color="warn"
+      [mat-dialog-close]="false"
+      fxFlex="50"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [mat-dialog-close]="data"
+      cdkFocusInitial
+      fxFlex="50"
+      [disabled]="form.invalid"
+    >
+      Save
+    </button>
+  </div>
+</div>
+
