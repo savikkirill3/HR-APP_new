@@ -1,0 +1,71 @@
+<figure
+  class="candidate-info-figure"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  matRipple
+  [matRippleColor]="'rgba(255,255,255, .2)'"
+>
+  <img class="candidate-info-img" [src]="imgSrc"/>
+  <div class="overflow">Click to update the image</div>
+  <input
+    type="file"
+    id="img-uploader"
+    style="display:none;"
+    (change)="onFileUpload($event)"
+  />
+  <label for="img-uploader" class="img-uploader"></label>
+</figure>
+<form fxLayout="column" #form="ngForm">
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="candidate.name"
+      placeholder="Name"
+      name="Name"
+      required
+    />
+    <mat-error align="end">This field is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="candidate.position"
+      placeholder="Position"
+      name="Position"
+    />
+  </mat-form-field>
+  <p>Contacts:</p>
+  <mat-checkbox (change)="change1()">
+    <p *ngIf="!check1">Telephone</p>
+    <mat-form-field *ngIf="check1">
+      <input
+        matInput
+        [(ngModel)]="candidate.telephone"
+        placeholder="Telephone"
+        name="Telephone"
+      />
+    </mat-form-field>
+  </mat-checkbox>
+  <mat-checkbox (change)="change2()">
+    <p *ngIf="!check2">Skype</p>
+    <mat-form-field *ngIf="check2">
+      <input
+        matInput
+        [(ngModel)]="candidate.skype"
+        placeholder="Skype"
+        name="Skype"
+      />
+    </mat-form-field>
+  </mat-checkbox>
+  <mat-checkbox (change)="change3()">
+    <p *ngIf="!check3">Email</p>
+    <mat-form-field *ngIf="check3">
+      <input
+        matInput
+        [(ngModel)]="candidate.email"
+        placeholder="Email"
+        name="Email"
+      />
+    </mat-form-field>
+  </mat-checkbox>
+</form>
