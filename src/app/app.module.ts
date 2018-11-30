@@ -22,7 +22,7 @@ import { TimelineComponent } from './pages/candidate/candidate-page/timeline/tim
 import {HttpClientModule} from '@angular/common/http';
 import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeline/new-notes-dialog/new-notes-dialog.component';
 import { NewExperienceDialogComponent } from './pages/candidate/candidate-page/timeline/new-experience-dialog/new-experience-dialog.component';
-
+import {NewCvDialogComponent} from './pages/candidate/candidate-page/timeline/new-cv-dialog/new-cv-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { NewExperienceDialogComponent } from './pages/candidate/candidate-page/t
     InterviewComponent,
     HeaderComponent,
 
-    ShortInfoComponent
+    ShortInfoComponent,
 
     TimelineComponent,
     NewNotesDialogComponent,
