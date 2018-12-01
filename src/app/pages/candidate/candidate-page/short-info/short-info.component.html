@@ -1,12 +1,12 @@
-<div class="short-info">
+<div class="short-info"  fxLayout="column">
   <figure
-    class="candidate-info-figure"
+    class="short-info-figure"
     fxLayout="column"
     fxLayoutAlign="center center"
     matRipple
     [matRippleColor]="'rgba(255,255,255, .2)'"
   >
-    <img class="candidate-info-img" [src]="imgSrc"/>
+    <img class="short-info-img" [src]="imgSrc"/>
     <div class="overflow">Click to update the image</div>
     <input
       type="file"
@@ -16,6 +16,7 @@
     />
     <label for="img-uploader" class="img-uploader"></label>
   </figure>
+
   <form fxLayout="column" #form="ngForm">
     <mat-form-field>
       <input

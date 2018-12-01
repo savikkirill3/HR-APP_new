@@ -1,6 +1,6 @@
-div.main{
-  width: 100%;
-  float: left;
+.timeLine{
+  position: relative;
+  width: 100vh;
 }
 
 mat-card {

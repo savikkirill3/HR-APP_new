@@ -1,7 +1,3 @@
-.candidate-title {
-  margin-top: 0;
-}
-
 mat-panel-title {
   font-size: 20px;
 }
@@ -11,11 +7,16 @@ mat-panel-title {
 }
 
 app-short-info{
-  width: 50%;
+  width: 100%;
   float: left;
 }
 
 app-timeline {
-  width: 50%;
+  width: 100%;
   float: left;
+}
+
+.short-info {
+  position: relative;
+  width: 36vh;
 }
