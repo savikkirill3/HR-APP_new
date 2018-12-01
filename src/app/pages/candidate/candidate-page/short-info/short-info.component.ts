@@ -56,3 +56,4 @@ export class ShortInfoComponent {
       this.check[i] = true;
     }
   }
+}

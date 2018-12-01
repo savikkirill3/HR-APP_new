@@ -4,6 +4,7 @@ import {NewNotesDialogComponent} from './new-notes-dialog/new-notes-dialog.compo
 import {NewExperienceDialogComponent} from './new-experience-dialog/new-experience-dialog.component';
 import {NewCvDialogComponent} from './new-cv-dialog/new-cv-dialog.component';
 
+
 /*export interface CandidateInfo {
   Notes: CandidateNotes;
   Experiences: CandidateExperience;
@@ -98,6 +99,10 @@ export class TimelineComponent implements OnInit {
         this.sortData();
       }
     });
+  }
+
+  saveData() {
+
   }
 
 }
