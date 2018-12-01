@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {MatIconRegistry} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
 import {NewNotesDialogComponent} from './new-notes-dialog/new-notes-dialog.component';
 import {NewExperienceDialogComponent} from './new-experience-dialog/new-experience-dialog.component';
 import {NewCvDialogComponent} from './new-cv-dialog/new-cv-dialog.component';
@@ -29,26 +27,19 @@ export interface CandidateExperience {
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css']
 })
+
 export class TimelineComponent implements OnInit {
+  interviewSrc = 'https://pp.userapi.com/c846124/v846124033/13c9f6/ObzTSC3ZsW0.jpg';
+  cvSrc = 'https://pp.userapi.com/c846124/v846124033/13c9fd/d0YzLGHlF1o.jpg';
+  experienceSrc = 'https://pp.userapi.com/c846124/v846124033/13c9ef/8bOFWRFc1P8.jpg';
+  notesSrc = 'https://pp.userapi.com/c846124/v846124033/13ca04/Az4jQeTtQqc.jpg';
+
   cvList = [];
   candidateInfo = [];
   notes: CandidateNotes[] = [];
   experiences: CandidateExperience[] = [];
 
-  constructor(public dialog: MatDialog, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'cv-icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/cv.svg'));
-    iconRegistry.addSvgIcon(
-      'notes-icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/notes.svg'));
-    iconRegistry.addSvgIcon(
-      'interview-icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/interview.svg'));
-    iconRegistry.addSvgIcon(
-      'experience-icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/experience.svg'));
-  }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
   }

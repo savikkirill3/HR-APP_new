@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 export interface CandidateShortInfo {
   name: string;
   position: string;
-  telephone: string;
-  skype: string;
-  email: string;
 }
+
+export interface Contacts {
+  name: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-short-info',
   templateUrl: './short-info.component.html',
@@ -14,18 +17,22 @@ export interface CandidateShortInfo {
 })
 export class ShortInfoComponent {
   imgSrc = 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png';
-  check1: boolean = false;
-  check2: boolean = false;
-  check3: boolean = false;
+
+  check: Array<boolean> = [false, false, false];
 
   candidate: CandidateShortInfo = {
     name: 'Lilliya ',
-    position: '',
-    telephone: '+375338768978',
-    skype: '',
-    email: ''
+    position: 'Front-end developer'
   };
-  constructor() { }
+
+  contacts: Contacts[] = [
+    {name: 'Telephone', value: '+3752980321323'},
+    {name: 'Skype', value: 'liliya333'},
+    {name: 'Email', value: 'liliya333@gmail.com'},
+  ];
+
+  constructor() {
+  }
 
   onFileUpload(e: Event) {
     const inputElement = e.target as HTMLInputElement;
@@ -42,28 +49,10 @@ export class ShortInfoComponent {
     };
   }
 
-  change1() {
-    if(this.check1 === true){
-      this.check1 = false
-    }
-    else if(this.check1 === false){
-      this.check1 = true
-    }
-  }
-  change2() {
-    if(this.check2 === true){
-      this.check2 = false
-    }
-    else if(this.check2 === false){
-      this.check2 = true
+  change(i) {
+    if (this.check[i] === true) {
+      this.check[i] = false;
+    } else {
+      this.check[i] = true;
     }
   }
-  change3() {
-    if(this.check3 === true){
-      this.check3 = false
-    }
-    else if(this.check3 === false){
-      this.check3 = true
-    }
-  }
-}

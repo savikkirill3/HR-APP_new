@@ -1,19 +1,19 @@
 <div class="main">
   <div class="buttons">
     <button mat-icon-button (click)="addInterview()" title="Assign interview">
-      <mat-icon svgIcon="interview-icon"></mat-icon>
+      <img class="icon" [src]="interviewSrc" />
     </button>
     <button mat-icon-button (click)="loadCV()" title="Load CV">
-      <mat-icon svgIcon="cv-icon"></mat-icon>
+      <img class="icon" [src]="cvSrc" />
     </button>
     <button mat-icon-button (click)="addExperience()" title="Add experience">
-      <mat-icon svgIcon="experience-icon"></mat-icon>
+      <img class="icon" [src]="experienceSrc" />
     </button>
     <button mat-icon-button (click)="addNotes()" title="Add Notes">
-      <mat-icon svgIcon="notes-icon"></mat-icon>
+      <img class="icon" [src]="notesSrc" />
     </button>
   </div>
-  <div class="timeline">
+  <div class="timeLine">
     <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo">
       <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note; else experience">
         <tr>
