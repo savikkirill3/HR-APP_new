@@ -1,106 +1,109 @@
-<mat-card class="timeLine">
-  <div class="buttons">
-    <button mat-icon-button (click)="addInterview()" title="Assign interview">
-      <img class="icon" [src]="interviewSrc" />
-    </button>
-    <button mat-icon-button (click)="loadCV()" title="Load CV">
-      <img class="icon" [src]="cvSrc" />
-    </button>
-    <button mat-icon-button (click)="addExperience()" title="Add experience">
-      <img class="icon" [src]="experienceSrc" />
-    </button>
-    <button mat-icon-button (click)="addNotes()" title="Add Notes">
-      <img class="icon" [src]="notesSrc" />
-    </button>
-  </div>
-  <div class="timeLine">
-    <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo">
-      <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note; else experience">
-        <h2>Note</h2>
+<div class="buttons">
+  <button mat-icon-button (click)="addInterview()" title="Assign interview">
+    <img class="icon" [src]="interviewSrc"/>
+  </button>
+  <button mat-icon-button (click)="loadCV()" title="Load CV">
+    <img class="icon" [src]="cvSrc"/>
+  </button>
+  <button mat-icon-button (click)="addExperience()" title="Add experience">
+    <img class="icon" [src]="experienceSrc"/>
+  </button>
+  <button mat-icon-button (click)="addNotes()" title="Add Notes">
+    <img class="icon" [src]="notesSrc"/>
+  </button>
+</div>
+<div class="timeLine">
+  <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo">
+    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note; else experience">
+      <h2>Note</h2>
+      <tr>
+        <td>
+          {{element.date | date}}
+        </td>
+        <td>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="element.Note"
+              placeholder="Note"
+              name="Note"
+              required
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+      <button mat-raised-button (click)="saveData()">Save</button>
+    </table>
+    <ng-template #experience>
+      <table fxFlex="1 1 auto" class="info-table">
+        <h2>Experience</h2>
         <tr>
           <td>
-            {{element.date | date}}</td>
+            {{element.date | date}}
+          </td>
           <td>
-            <mat-form-field>
-              <input
-                matInput
-                [(ngModel)]="element.Note"
-                placeholder="Note"
-                name="Note"
-                required
-              />
-            </mat-form-field>
+            <p>
+              <mat-form-field>
+                <input
+                  matInput
+                  [(ngModel)]="element.dateFrom"
+                  name="Date from"
+                  [matDatepicker]="picker1"
+                  placeholder="Date from"
+                  required
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker1"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input
+                  matInput
+                  [(ngModel)]="element.dateTo"
+                  name="Date to"
+                  [matDatepicker]="picker2"
+                  placeholder="Date to"
+                  required
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input
+                  matInput
+                  [(ngModel)]="element.companyName"
+                  placeholder="Company name"
+                  name="Company name"
+                  required
+                />
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input
+                  matInput
+                  [(ngModel)]="element.position"
+                  placeholder="Position"
+                  name="Position"
+                  required
+                />
+              </mat-form-field>
+            </p>
+
           </td>
         </tr>
         <button mat-raised-button (click)="saveData()">Save</button>
       </table>
-      <ng-template #experience>
-        <table fxFlex="1 1 auto" class="info-table">
-          <h2>Experience</h2>
-          <tr>
-            <td>
-              {{element.date | date}}</td>
-            <td>
-              <p>
-              <mat-form-field>
-                  <input
-                    matInput
-                    [(ngModel)]="element.dateFrom"
-                    name="Date from"
-                    [matDatepicker]="picker1"
-                    placeholder="Date from"
-                    required
-                  /><mat-datepicker-toggle
-                    matSuffix
-                    [for]="picker1"
-                  ></mat-datepicker-toggle><mat-datepicker #picker1></mat-datepicker>
-              </mat-form-field>
-              </p>
-              <p>
-              <mat-form-field>
-                  <input
-                    matInput
-                    [(ngModel)]="element.dateTo"
-                    name="Date to"
-                    [matDatepicker]="picker2"
-                    placeholder="Date to"
-                    required
-                  />
-                  <mat-datepicker-toggle
-                    matSuffix
-                    [for]="picker2"
-                  ></mat-datepicker-toggle>
-                  <mat-datepicker #picker2></mat-datepicker>
-              </mat-form-field>
-              </p>
-              <p>
-              <mat-form-field>
-                  <input
-                    matInput
-                    [(ngModel)]="element.companyName"
-                    placeholder="Company name"
-                    name="Company name"
-                    required
-                  />
-              </mat-form-field>
-              </p>
-              <p>
-              <mat-form-field>
-                  <input
-                    matInput
-                    [(ngModel)]="element.position"
-                    placeholder="Position"
-                    name="Position"
-                    required
-                  />
-              </mat-form-field>
-              </p>
+    </ng-template>
+  </mat-card>
+</div>
 
-            </td>
-          </tr>
-          <button mat-raised-button (click)="saveData()">Save</button>
-        </table>
-      </ng-template>
-    </mat-card>
-  </div>
-</mat-card>
