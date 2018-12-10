@@ -31,6 +31,11 @@ export class NewCvDialogComponent implements OnInit {
     }
   }
 
+  close() {
+    this.closeEmitter.emit();
+
+  }
+
   private readFile(file: File): Promise<string> {
     return new Promise((resolve: Function, reject: Function) => {
       const reader = new FileReader();

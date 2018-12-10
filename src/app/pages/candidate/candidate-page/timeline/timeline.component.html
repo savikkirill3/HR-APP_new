@@ -2,7 +2,7 @@
   <button mat-icon-button (click)="addInterview()" title="Assign interview">
     <img class="icon" [src]="interviewSrc"/>
   </button>
-  <button mat-icon-button (click)="loadCV()" title="Load CV">
+  <button mat-icon-button (click)="addCv()" title="Load CV">
     <img class="icon" [src]="cvSrc"/>
   </button>
   <button mat-icon-button (click)="addExperience()" title="Add experience">
@@ -13,9 +13,15 @@
   </button>
 </div>
 <div class="timeLine">
-  <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo">
+  <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo; let i=index">
     <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note; else experience">
+      <tr>
+      <button class="close" mat-icon-button (click)="closeBlock(i)">
+        <mat-icon>close</mat-icon>
+      </button>
       <h2>Note</h2>
+      </tr>
+
       <tr>
         <td>
           {{element.date | date}}
@@ -23,6 +29,7 @@
         <td>
           <mat-form-field>
             <input
+              class="note-input"
               matInput
               [(ngModel)]="element.Note"
               placeholder="Note"
@@ -32,10 +39,13 @@
           </mat-form-field>
         </td>
       </tr>
-      <button mat-raised-button (click)="saveData()">Save</button>
+      <button mat-raised-button (click)="saveData(i)">Save</button>
     </table>
     <ng-template #experience>
       <table fxFlex="1 1 auto" class="info-table">
+        <button class="close" mat-icon-button (click)="closeBlock(i)">
+          <mat-icon>close</mat-icon>
+        </button>
         <h2>Experience</h2>
         <tr>
           <td>

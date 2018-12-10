@@ -4,8 +4,9 @@
       <input
         type="file"
         accept=".doc,.docx,.txt,.pdf"
-        placeholder="Company name"
-        name="Company name"
+        placeholder="Input file"
+        name="input-file"
+        [(ngModel)]="data.file"
         (change)="addCV($event)"
         required
       />
@@ -30,6 +31,9 @@
       [mat-dialog-close]="data"
       cdkFocusInitial
       fxFlex="50"
-    >Save</button>
+      [disabled]="form.invalid"
+    >
+      Save
+    </button>
   </div>
 </div>
