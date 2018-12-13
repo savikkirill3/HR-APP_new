@@ -1,3 +1,40 @@
-<p>
-  vacancy works!
-</p>
+<div *ngIf="vacancies.length !== 0; else empty">
+  <mat-card
+    fxLayout="column"
+    *ngFor="let vacancy of vacancies"
+  >
+    <div>
+      Vacancy name: {{vacancy.name}}
+    </div>
+    <div>
+      Vacancy status: {{vacancy.status}}
+    </div>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/vacancy', vacancy._id]"
+        cdkFocusInitial
+        fxFlex="10"
+      >
+        More info
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/vacancy']"
+      cdkFocusInitial
+      fxFlex="10"
+    >
+      Create new
+    </button>
+  </mat-card-actions>
+</div>
+<ng-template #empty>
+  <div>
+    Create vacancy.
+  </div>
+</ng-template>
