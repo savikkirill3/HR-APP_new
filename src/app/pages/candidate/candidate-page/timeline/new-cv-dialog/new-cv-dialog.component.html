@@ -6,7 +6,6 @@
         accept=".doc,.docx,.txt,.pdf"
         placeholder="Input file"
         name="input-file"
-        [(ngModel)]="data.file"
         (change)="addCV($event)"
         required
       />
@@ -28,10 +27,10 @@
     <button
       mat-raised-button
       color="primary"
-      [mat-dialog-close]="data"
+      [mat-dialog-close]="chosenFile"
       cdkFocusInitial
       fxFlex="50"
-      [disabled]="form.invalid"
+      [disabled]="!chosenFile"
     >
       Save
     </button>

@@ -52,7 +52,7 @@ export class ShortInfoComponent {
   change(i) {
     if (this.check[i] === true) {
       this.check[i] = false;
-    } else {
+    } else if (this.check[i] === false) {
       this.check[i] = true;
     }
   }

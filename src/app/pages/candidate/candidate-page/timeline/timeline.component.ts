@@ -47,7 +47,6 @@ export class TimelineComponent implements OnInit {
 
   addCv() {
     const dialogNew = this.dialog.open(NewCvDialogComponent, {
-      data: {...this.cvList}
     });
 
     dialogNew.afterClosed().subscribe(result => {
@@ -59,6 +58,20 @@ export class TimelineComponent implements OnInit {
         this.sortData();
       }
     });
+  }
+
+  deleteCv(cv) {
+    const index: number = this.candidateInfo.indexOf(cv);
+    this.candidateInfo.splice(index, 1);
+  }
+
+  downloadCv(cv) {
+    const a = document.createElement('a');
+    a.download = cv.name;
+    a.href = cv.data;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
   }
 
   sortData() {
@@ -101,13 +114,19 @@ export class TimelineComponent implements OnInit {
     });
   }
 
-  saveData(index) {
-    const notes = (<HTMLInputElement>document.getElementsByClassName('note-input')[0]).value;
-    console.log(notes);
-    this.candidateInfo[index].Note = notes;
+  saveNotes(index: number, element) {
+      this.candidateInfo[index].Note = element.Note;
+      console.log(this.candidateInfo[index].Note);
   }
 
-  closeBlock(index) {
+  saveExperience(index: number, element) {
+    this.candidateInfo[index].companyName = element.companyName;
+    this.candidateInfo[index].position = element.position;
+    this.candidateInfo[index].dateFrom = element.dateFrom;
+    this.candidateInfo[index].dateTo = element.dateTo;
+  }
+
+  closeBlock(index: number) {
     this.candidateInfo.splice(index, 1);
 
   }

@@ -12,37 +12,36 @@
     <img class="icon" [src]="notesSrc"/>
   </button>
 </div>
-<div class="timeLine">
+<div class="timeLine" *ngIf="candidateInfo[0]">
   <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo; let i=index">
-    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note; else experience">
-      <tr>
-      <button class="close" mat-icon-button (click)="closeBlock(i)">
-        <mat-icon>close</mat-icon>
-      </button>
-      <h2>Note</h2>
-      </tr>
+    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note">
+        <tr>
+        <button class="close" mat-icon-button (click)="closeBlock(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+        <h2>Note</h2>
+        </tr>
 
-      <tr>
-        <td>
-          {{element.date | date}}
-        </td>
-        <td>
-          <mat-form-field>
-            <input
-              class="note-input"
-              matInput
-              [(ngModel)]="element.Note"
-              placeholder="Note"
-              name="Note"
-              required
-            />
-          </mat-form-field>
-        </td>
-      </tr>
-      <button mat-raised-button (click)="saveData(i)">Save</button>
-    </table>
-    <ng-template #experience>
-      <table fxFlex="1 1 auto" class="info-table">
+        <tr>
+          <td>
+            {{element.date | date}}
+          </td>
+          <td>
+            <mat-form-field>
+              <textarea
+                class="note-input"
+                matInput
+                [(ngModel)]="element.Note"
+                placeholder="Note"
+                name="Note"
+                required
+              ></textarea>
+            </mat-form-field>
+          </td>
+        </tr>
+        <button mat-raised-button (click)="saveNotes(i, element)" color="primary">Save</button>
+      </table>
+    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.companyName">
         <button class="close" mat-icon-button (click)="closeBlock(i)">
           <mat-icon>close</mat-icon>
         </button>
@@ -111,9 +110,24 @@
 
           </td>
         </tr>
-        <button mat-raised-button (click)="saveData()">Save</button>
+        <button mat-raised-button (click)="saveExperience(i, element)" color="primary"
+        >Save</button>
       </table>
-    </ng-template>
+    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.size">
+      <button class="close" mat-icon-button (click)="closeBlock(i)">
+        <mat-icon>close</mat-icon>
+      </button>
+      <h2>CV</h2>
+      <tr>
+        <td>
+          {{element.date | date}}
+        </td>
+        <td>
+          <h4 mat-line><mat-icon mat-list-icon>note</mat-icon> {{element.name}}</h4>
+          <button mat-raised-button (click)="downloadCv(element)" color="primary">Download</button>
+        </td>
+      </tr>
+    </table>
   </mat-card>
 </div>
 
