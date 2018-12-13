@@ -41,3 +41,10 @@ mat-card {
 .icon {
   max-height: 4vh;
 }
+
+.close {
+  position: absolute;
+  float: right;
+  right: 0px;
+  top: 0px;
+}

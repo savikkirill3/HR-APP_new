@@ -45,16 +45,17 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
   }
 
-  loadCV() {
+  addCv() {
     const dialogNew = this.dialog.open(NewCvDialogComponent, {
-      data: {...this.notes}
+      data: {...this.cvList}
     });
+
     dialogNew.afterClosed().subscribe(result => {
       if (result) {
         result.date = new Date();
         this.cvList.push(result);
         this.candidateInfo.push(result);
-        console.log(result);
+        console.log(this.candidateInfo);
         this.sortData();
       }
     });
@@ -76,7 +77,6 @@ export class TimelineComponent implements OnInit {
         result.date = new Date();
         this.notes.push(result);
         this.candidateInfo.push(result);
-        console.log(this.candidateInfo);
         this.sortData();
       }
     });
@@ -101,7 +101,14 @@ export class TimelineComponent implements OnInit {
     });
   }
 
-  saveData() {
+  saveData(index) {
+    const notes = (<HTMLInputElement>document.getElementsByClassName('note-input')[0]).value;
+    console.log(notes);
+    this.candidateInfo[index].Note = notes;
+  }
+
+  closeBlock(index) {
+    this.candidateInfo.splice(index, 1);
 
   }
 
