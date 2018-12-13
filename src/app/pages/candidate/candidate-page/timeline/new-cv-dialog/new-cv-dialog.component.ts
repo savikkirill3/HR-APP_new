@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material';
-import {CandidateNotes} from '../timeline.component';
 
 @Component({
   selector: 'app-new-cv-dialog',
@@ -8,11 +7,7 @@ import {CandidateNotes} from '../timeline.component';
   styleUrls: ['./new-cv-dialog.component.css']
 })
 export class NewCvDialogComponent implements OnInit {
-  @Output()
-  CVFileEmitter: EventEmitter<{file: any}> = new EventEmitter();
-
-  @Output('close')
-  closeEmitter: EventEmitter<null> = new EventEmitter();
+  chosenFile: any;
 
   ngOnInit() {
   }
@@ -26,14 +21,9 @@ export class NewCvDialogComponent implements OnInit {
 
     if (event.target.files) {
       this.readFile(event.target.files[0]).then((file => {
-        this.CVFileEmitter.emit({file: file});
+        this.chosenFile = file;
       }));
     }
-  }
-
-  close() {
-    this.closeEmitter.emit();
-
   }
 
   private readFile(file: File): Promise<string> {

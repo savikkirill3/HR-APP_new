@@ -38,17 +38,17 @@
     </mat-form-field>
     <p>Contacts:</p>
     <div *ngFor="let contact of contacts; let i = index">
-      <mat-checkbox (change)="change(i)">
-        <p *ngIf="!check[i]">{{contact.name}}</p>
+      <mat-checkbox (change)="change(i)" class="checkbox">
+      </mat-checkbox>
+      <span *ngIf="!check[i]" class="contacts"> {{contact.name}}</span>
         <mat-form-field *ngIf="check[i]">
           <input
             matInput
-            [(ngModel)]="contact.value"
-            placeholder={{contact.name}}
-            name={{contact.name}}
+            [(ngModel)]= " contact.value"
+            placeholder= {{contact.name}}
+            name= {{contact.name}}
           />
         </mat-form-field>
-      </mat-checkbox>
     </div>
   </form>
 </div>
