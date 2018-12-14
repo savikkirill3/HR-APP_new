@@ -12,7 +12,7 @@ export class NewCvDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
 

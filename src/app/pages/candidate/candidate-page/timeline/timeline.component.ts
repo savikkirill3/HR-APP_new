@@ -4,12 +4,6 @@ import {NewNotesDialogComponent} from './new-notes-dialog/new-notes-dialog.compo
 import {NewExperienceDialogComponent} from './new-experience-dialog/new-experience-dialog.component';
 import {NewCvDialogComponent} from './new-cv-dialog/new-cv-dialog.component';
 
-
-/*export interface CandidateInfo {
-  Notes: CandidateNotes;
-  Experiences: CandidateExperience;
-}*/
-
 export interface CandidateNotes {
   Note: string;
   date: Date;
@@ -35,7 +29,6 @@ export class TimelineComponent implements OnInit {
   experienceSrc = 'https://pp.userapi.com/c846124/v846124033/13c9ef/8bOFWRFc1P8.jpg';
   notesSrc = 'https://pp.userapi.com/c846124/v846124033/13ca04/Az4jQeTtQqc.jpg';
 
-  cvList = [];
   candidateInfo = [];
   notes: CandidateNotes[] = [];
   experiences: CandidateExperience[] = [];
@@ -52,17 +45,11 @@ export class TimelineComponent implements OnInit {
     dialogNew.afterClosed().subscribe(result => {
       if (result) {
         result.date = new Date();
-        this.cvList.push(result);
+        result.type = 'CV';
         this.candidateInfo.push(result);
-        console.log(this.candidateInfo);
         this.sortData();
       }
     });
-  }
-
-  deleteCv(cv) {
-    const index: number = this.candidateInfo.indexOf(cv);
-    this.candidateInfo.splice(index, 1);
   }
 
   downloadCv(cv) {
@@ -88,7 +75,7 @@ export class TimelineComponent implements OnInit {
     dialogNew.afterClosed().subscribe(result => {
       if (result) {
         result.date = new Date();
-        this.notes.push(result);
+        result.type = 'Note';
         this.candidateInfo.push(result);
         this.sortData();
       }
@@ -107,7 +94,7 @@ export class TimelineComponent implements OnInit {
     dialogNew.afterClosed().subscribe(result => {
       if (result) {
         result.date = new Date();
-        this.experiences.push(result);
+        result.type = 'Experience';
         this.candidateInfo.push(result);
         this.sortData();
       }

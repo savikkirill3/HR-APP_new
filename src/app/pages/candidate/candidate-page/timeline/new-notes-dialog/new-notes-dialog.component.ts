@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material';
-import {CandidateNotes} from '../timeline.component';
 
 
 @Component({
@@ -10,7 +9,7 @@ import {CandidateNotes} from '../timeline.component';
 })
 export class NewNotesDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: CandidateNotes) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }

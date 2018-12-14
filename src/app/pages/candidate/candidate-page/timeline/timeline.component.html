@@ -14,7 +14,9 @@
 </div>
 <div class="timeLine" *ngIf="candidateInfo[0]">
   <mat-card class="notes-info" fxLayout *ngFor="let element of candidateInfo; let i=index">
-    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.Note">
+    <div class="switch" [ngSwitch]="element.type">
+    <ng-container *ngSwitchCase="'Note'">
+    <table fxFlex="1 1 auto" class="info-table">
         <tr>
         <button class="close" mat-icon-button (click)="closeBlock(i)">
           <mat-icon>close</mat-icon>
@@ -39,9 +41,16 @@
             </mat-form-field>
           </td>
         </tr>
-        <button mat-raised-button (click)="saveNotes(i, element)" color="primary">Save</button>
+        <button
+          mat-raised-button
+          (click)="saveNotes(i, element)"
+          color="primary"
+          [disabled]="!element.Note"
+        >Save</button>
       </table>
-    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.companyName">
+    </ng-container>
+      <ng-container *ngSwitchCase="'Experience'">
+      <table fxFlex="1 1 auto" class="info-table">
         <button class="close" mat-icon-button (click)="closeBlock(i)">
           <mat-icon>close</mat-icon>
         </button>
@@ -59,7 +68,6 @@
                   name="Date from"
                   [matDatepicker]="picker1"
                   placeholder="Date from"
-                  required
                 />
                 <mat-datepicker-toggle
                   matSuffix
@@ -76,7 +84,6 @@
                   name="Date to"
                   [matDatepicker]="picker2"
                   placeholder="Date to"
-                  required
                 />
                 <mat-datepicker-toggle
                   matSuffix
@@ -103,31 +110,38 @@
                   [(ngModel)]="element.position"
                   placeholder="Position"
                   name="Position"
-                  required
                 />
               </mat-form-field>
             </p>
 
           </td>
         </tr>
-        <button mat-raised-button (click)="saveExperience(i, element)" color="primary"
+        <button
+          mat-raised-button
+          (click)="saveExperience(i, element)"
+          color="primary"
+          [disabled]="!element.companyName"
         >Save</button>
       </table>
-    <table fxFlex="1 1 auto" class="info-table" *ngIf="element.size">
-      <button class="close" mat-icon-button (click)="closeBlock(i)">
-        <mat-icon>close</mat-icon>
-      </button>
-      <h2>CV</h2>
-      <tr>
-        <td>
-          {{element.date | date}}
-        </td>
-        <td>
-          <h4 mat-line><mat-icon mat-list-icon>note</mat-icon> {{element.name}}</h4>
-          <button mat-raised-button (click)="downloadCv(element)" color="primary">Download</button>
-        </td>
-      </tr>
-    </table>
+      </ng-container>
+      <ng-container *ngSwitchCase="'CV'">
+        <table fxFlex="1 1 auto" class="info-table">
+          <button class="close" mat-icon-button (click)="closeBlock(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+          <h2>CV</h2>
+          <tr>
+            <td>
+              {{element.date | date}}
+            </td>
+            <td>
+              <h4 mat-line><mat-icon mat-list-icon>note</mat-icon> {{element.name}}</h4>
+              <button mat-raised-button (click)="downloadCv(element)" color="primary">Download</button>
+            </td>
+          </tr>
+        </table>
+      </ng-container>
+  </div>
   </mat-card>
 </div>
 
