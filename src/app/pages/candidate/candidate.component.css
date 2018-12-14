@@ -1,10 +1,14 @@
-mat-card {
-  margin-right: 0.7vh;
+.candidates-board {
+  flex-wrap: wrap;
+}
+
+.candidate-card {
+  margin: 0.4vh;
 }
 
 .candidate-figure {
   border-radius: 4px;
-  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
   margin: 1%;
   max-width: 300px;
   overflow: hidden;
@@ -24,7 +28,7 @@ mat-card {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, .3);
   color: white;
 }
 
@@ -36,4 +40,11 @@ mat-card {
 
 .centre {
   text-align: center;
+}
+
+.add-button {
+  position: absolute;
+  float: right;
+  right: 4vh;
+  bottom: 4vh;
 }

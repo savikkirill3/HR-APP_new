@@ -8,10 +8,10 @@ import {VacancyPageComponent} from './pages/vacancy/vacancy-page/vacancy-page.co
 
 const routes: Routes = [
   {path: 'interview', component: InterviewComponent},
-  {path: 'vacancy', component: VacancyComponent},
-  {path: 'vacancy/:id', component: VacancyPageComponent},
-  {path: 'candidate', component: CandidateComponent},
-  {path: 'candidate/:id', component: CandidatePageComponent}
+  {path: 'vacancies', component: VacancyComponent},
+  {path: 'vacancies/:id', component: VacancyPageComponent},
+  {path: 'candidates', component: CandidateComponent},
+  {path: 'candidates/:id', component: CandidatePageComponent}
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 export interface Vacancy {
   name: string;
   status: string;
-  candidate?: Candidate;
+  candidates?: Candidate[];
   _id: string;
 }
 

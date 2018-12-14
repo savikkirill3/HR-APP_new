@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   links: {url: string; name: string}[] = [
-    {url: 'candidate', name: 'Candidates'},
+    {url: 'candidates', name: 'Candidates'},
     {url: 'interview', name: 'Interview'},
-    {url: 'vacancy', name: 'Vacancy'},
-   ];
+    {url: 'vacancies', name: 'Vacancies'},
+  ];
 
   constructor() { }
 

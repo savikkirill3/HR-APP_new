@@ -3,38 +3,61 @@
     fxLayout="column"
     *ngFor="let vacancy of vacancies"
   >
+    <button
+      class="open-vacancy"
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/vacancies', vacancy._id]"
+      cdkFocusInitial
+    >
+      More info
+    </button>
     <div>
       Vacancy name: {{vacancy.name}}
     </div>
     <div>
       Vacancy status: {{vacancy.status}}
+      <mat-icon *ngIf="vacancy.status == 'closed'; else opened" class="closed">lens</mat-icon>
+      <ng-template #opened>
+        <mat-icon class="opened">lens</mat-icon>
+      </ng-template>
     </div>
-    <mat-card-actions>
-      <button
-        mat-raised-button
-        color="primary"
-        [routerLink]="['/vacancy', vacancy._id]"
-        cdkFocusInitial
-        fxFlex="10"
+    <div fxLayout *ngIf="vacancy.candidates.length !== 0;else notFound">
+      <mat-card
+        *ngFor="let candidate of vacancy.candidates"
       >
-        More info
-      </button>
-    </mat-card-actions>
+        <table fxFlex="1 1 auto">
+          <tr>
+            <td>
+              <img src={{candidate.imgSrc}}>
+            </td>
+            <td>
+          <tr>
+            <p>{{candidate.name}}</p>
+            <p>{{candidate.phone}}</p>
+          </tr>
+          </td>
+          </tr>
+        </table>
+      </mat-card>
+    </div>
+    <ng-template #notFound>
+      <div>notFound</div>
+    </ng-template>
   </mat-card>
-  <mat-card-actions>
-    <button
-      mat-raised-button
-      color="primary"
-      [routerLink]="['/vacancy']"
-      cdkFocusInitial
-      fxFlex="10"
-    >
-      Create new
-    </button>
-  </mat-card-actions>
 </div>
+
 <ng-template #empty>
   <div>
     Create vacancy.
   </div>
 </ng-template>
+<div class="add-button">
+  <button
+    mat-fab
+    color="primary"
+    [routerLink]="['/vacancies/new']"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
