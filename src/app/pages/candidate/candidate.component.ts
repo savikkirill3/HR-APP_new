@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Candidate} from '../../../shared/interfaces';
 
 @Component({
   selector: 'app-candidate',
@@ -7,12 +7,25 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./candidate.component.css']
 })
 export class CandidateComponent implements OnInit {
+  candidates: Candidate[] = [
+    {
+      name: 'Lilliya',
+      imgSrc: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
+      _id: '3'
+    },
+    {
+      name: 'Lilliya',
+      imgSrc: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
+      _id: '2'
+    },
+    {
+      name: 'Lilliya',
+      imgSrc: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
+      _id: '1'
+    }
+  ];
 
-  id: number;
-
-  constructor(private activateRoute: ActivatedRoute) {
-
-    this.id = activateRoute.snapshot.params['id'];
+  constructor() {
   }
 
   ngOnInit() {

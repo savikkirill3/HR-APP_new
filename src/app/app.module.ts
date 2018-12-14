@@ -24,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NewNotesDialogComponent } from './pages/candidate/candidate-page/timeline/new-notes-dialog/new-notes-dialog.component';
 import { NewExperienceDialogComponent } from './pages/candidate/candidate-page/timeline/new-experience-dialog/new-experience-dialog.component';
 import {NewCvDialogComponent} from './pages/candidate/candidate-page/timeline/new-cv-dialog/new-cv-dialog.component';
+import { VacancyPageComponent } from './pages/vacancy/vacancy-page/vacancy-page.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {NewCvDialogComponent} from './pages/candidate/candidate-page/timeline/ne
     TimelineComponent,
     NewNotesDialogComponent,
     NewExperienceDialogComponent,
-    NewCvDialogComponent
+    NewCvDialogComponent,
+    VacancyPageComponent
 
   ],
   imports: [

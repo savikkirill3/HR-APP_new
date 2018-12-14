@@ -1,2 +1,36 @@
-<a [routerLink]="3" >Candidate</a>
+<div  class="candidates-board" fxLayout="row" *ngIf="candidates.length !== 0; else empty">
+  <mat-card
+    *ngFor="let candidate of candidates"
+  >
+    <a [routerLink]="['/candidate', candidate._id]">
+      <figure
+        class="candidate-figure"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        matRipple
+        [matRippleColor]="'rgba(255,255,255, .2)'"
+      >
+        <img class="candidate-img" [src]=candidate.imgSrc />
+        <div class="overflow">Click to open candidate</div>
+      </figure>
+    </a>
+    <div class="centre">{{candidate.name}}</div>
+  </mat-card>
 
+  <mat-card>
+    <a [routerLink]="">
+      <figure
+        class="candidate-figure"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        matRipple
+        [matRippleColor]="'rgba(255,255,255, .2)'"
+      >
+        <img class="candidate-img" src="https://pp.userapi.com/c848636/v848636342/dd174/GsLqIbEAcYI.jpg"/>
+        <div class="overflow">Create new candidate</div>
+      </figure>
+    </a>
+    <div class="centre">Create new candidate</div>
+  </mat-card>
+
+</div>
