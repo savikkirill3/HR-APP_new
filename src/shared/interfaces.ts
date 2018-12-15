@@ -2,12 +2,13 @@ export interface Vacancy {
   name: string;
   status: string;
   candidates?: Candidate[];
-  _id: string;
+  id: string;
 }
 
 export interface Candidate {
   name: string;
+  surname: string;
   phone?: string;
-  imgSrc?: string;
-  _id: string;
+  photo?: string;
+  id: string;
 }

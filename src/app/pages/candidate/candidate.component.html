@@ -3,7 +3,7 @@
     class="candidate-card"
     *ngFor="let candidate of candidates"
   >
-    <a [routerLink]="['/candidates', candidate._id]">
+    <a [routerLink]="['/candidates', candidate.id]">
       <figure
         class="candidate-figure"
         fxLayout="column"
@@ -11,11 +11,11 @@
         matRipple
         [matRippleColor]="'rgba(255,255,255, .2)'"
       >
-        <img class="candidate-img" [src]=candidate.imgSrc />
+        <img class="candidate-img" [src]=candidate.photo />
         <div class="overflow">Click to open candidate</div>
       </figure>
     </a>
-    <div class="centre">{{candidate.name}}</div>
+    <div class="centre">{{candidate.name}} {{candidate.surname}}</div>
   </mat-card>
 </div>
 <div class="add-button">

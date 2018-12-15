@@ -10,28 +10,28 @@ export class VacancyComponent implements OnInit {
   candidates: Candidate[] = [
     {
       name: 'Lilliya',
-      imgSrc: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
-      phone: '+32565863212',
-      _id: '3'
+      surname: 'Scarlett',
+      photo: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
+      id: '2'
     },
     {
-      name: 'Lilliya',
-      imgSrc: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
-      phone: '+32565863212',
-      _id: '3'
+      name: 'Till',
+      surname: 'Lindemann',
+      photo: 'https://24smi.org/public/media/2018/7/26/3a7d5326675226a244c7b4f7a853bffe-till-rammstein-till-lindemann-hot.jpg',
+      id: '1'
     },
     {
-      name: 'Lilliya',
-      imgSrc: 'https://assets.capitalfm.com/2018/23/lilliya-scarlett-instagram-1528814125-custom-0.png',
-      phone: '+32565863212',
-      _id: '3'
+      name: 'David',
+      surname: 'Beckham',
+      photo: 'http://img-fotki.yandex.ru/get/5639/157185180.62/0_b98e2_a784197f_XL.jpg',
+      id: '3'
     }
   ];
 
   vacancies: Vacancy[] = [
-    {name: '1', status: 'closed', _id: '1', candidates: this.candidates},
-    {name: '2', status: 'opened', _id: '2', candidates: []},
-    {name: '3', status: 'opened', _id: '3', candidates: []}
+    {name: 'Java', status: 'closed', id: '1', candidates: this.candidates},
+    {name: 'JS', status: 'opened', id: '2', candidates: []},
+    {name: 'SQL', status: 'opened', id: '3', candidates: []}
   ];
 
   constructor() {

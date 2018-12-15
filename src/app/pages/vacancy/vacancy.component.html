@@ -7,7 +7,7 @@
       class="open-vacancy"
       mat-raised-button
       color="primary"
-      [routerLink]="['/vacancies', vacancy._id]"
+      [routerLink]="['/vacancies', vacancy.id]"
       cdkFocusInitial
     >
       More info
@@ -29,11 +29,11 @@
         <table fxFlex="1 1 auto">
           <tr>
             <td>
-              <img src={{candidate.imgSrc}}>
+              <img src={{candidate.photo}}>
             </td>
             <td>
           <tr>
-            <p>{{candidate.name}}</p>
+            <p>{{candidate.name}} {{candidate.surname}}</p>
             <p>{{candidate.phone}}</p>
           </tr>
           </td>
